@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StockMaster — Landing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">StockMaster</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="pages/products-list.html">Products</a>
+        <a href="pages/receipts-list.html">Receipts</a>
+        <a href="pages/deliveries-list.html">Deliveries</a>
+        <a href="pages/transfers-list.html">Transfers</a>
+        <a href="pages/adjustments-list.html">Adjustments</a>
+        <a href="pages/move-history.html">Move History</a>
+        <a href="pages/warehouses.html">Warehouses</a>
+        <a href="pages/profile.html">Profile</a>
+      </nav>
+      <div class="footer">© StockMaster</div>
+    </aside>
+
+    <main class="content">
+      <div class="header">
+        <h1>Welcome to StockMaster</h1>
+        <div class="toolbar">
+          <a class="btn" href="dashboard.html">Open Dashboard</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>About</h3>
+        <p>StockMaster converts manual stock registers into a centralized inventory system.</p>
+        <p class="muted">Use the navigation to explore modules.</p>
+      </div>
+
+      <div class="card pdf-embed">
+        <!-- Embedded local PDF (exact local path used) -->
+        <iframe src="StockMaster.pdf" frameborder="0" style="width:100%;height:100%"></iframe>
+      </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
