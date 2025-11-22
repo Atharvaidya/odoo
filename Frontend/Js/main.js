@@ -1,6 +1,6 @@
 // Frontend API base (override by setting `window.API_BASE` in global scope)
 // Default set to `/data` to match the repository's data folder connected to backend.
-const API_BASE = window.API_BASE || '/data';
+const API_BASE = window.API_BASE || 'http://127.0.0.1:5000';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Activate nav link matching pathname
@@ -148,20 +148,36 @@ function attachLoginHandler(){
 function attachRegisterHandler(){
   const form = document.getElementById('register-form');
   if(!form) return;
+
   form.addEventListener('submit', async e =>{
     e.preventDefault();
-    const name = document.getElementById('register-name').value;
-    const email = document.getElementById('register-email').value;
+
+    const name = document.getElementById('register-name').value.trim();
+    const email = document.getElementById('register-email').value.trim();
     const password = document.getElementById('register-password').value;
+
     try{
-      await fetchJson(`${API_BASE}/auth/register`, {
-        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({name,email,password})
+      const res = await fetch(API_BASE + '/auth/register', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({name, email, password})
       });
-      alert('Registration successful — please login');
-      window.location = 'login.html';
-    }catch(err){ alert('Registration failed'); }
+
+      if(!res.ok){
+        const text = await res.text();
+        throw new Error(text || 'Registration failed');
+      }
+
+      alert('Registration successful ✅ Please login');
+      window.location.href = 'login.html';
+
+    }catch(err){
+      console.error('REGISTER ERROR:', err);
+      alert('Registration failed : ' + err.message);
+    }
   });
 }
+
 
 function attachProductCreateHandler(){
   const form = document.getElementById('product-create-form');
