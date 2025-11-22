@@ -1,6 +1,6 @@
 // Frontend API base (override by setting `window.API_BASE` in global scope)
 // Default set to `/data` to match the repository's data folder connected to backend.
-const API_BASE = window.API_BASE || 'http://127.0.0.1:5000';
+const API_BASE = "http://localhost:5000/api";
 
 document.addEventListener('DOMContentLoaded', () => {
   // Activate nav link matching pathname
