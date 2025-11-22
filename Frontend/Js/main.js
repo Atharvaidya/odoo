@@ -1,6 +1,6 @@
-// frontend/public/js/main.js
-// API base for Option A: prefix '/data' on local Flask -> full URL
-const API_BASE = window.API_BASE || 'http://127.0.0.1:5000/api';
+// Frontend API base (override by setting `window.API_BASE` in global scope)
+// Default set to `/data` to match the repository's data folder connected to backend.
+const API_BASE = "http://localhost:5000/api";
 
 document.addEventListener('DOMContentLoaded', () => {
   // Activate nav link matching pathname (compare only filename)
@@ -241,46 +241,42 @@ function attachLoginHandler() {
 
 function attachRegisterHandler() {
   const form = document.getElementById('register-form');
-  if (!form) return;
+  if(!form) return;
 
-  form.addEventListener('submit', async e => {
+  form.addEventListener('submit', async e =>{
     e.preventDefault();
 
     const name = document.getElementById('register-name').value.trim();
     const email = document.getElementById('register-email').value.trim();
     const password = document.getElementById('register-password').value;
 
-    try {
-      const response = await fetch(API_BASE + '/auth/register', {
+    try{
+      const res = await fetch(API_BASE + '/auth/register', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ name, email, password })
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({name, email, password})
       });
 
-      if (!response.ok) {
-        const text = await response.text();
+      if(!res.ok){
+        const text = await res.text();
         throw new Error(text || 'Registration failed');
       }
 
-      const data = await response.json();
+      alert('Registration successful ✅ Please login');
+      window.location.href = 'login.html';
 
-      // auto login after register
-      localStorage.setItem('authToken', data.token || '');
-
-      window.location.href = 'dashboard.html';
-
-    } catch (error) {
-      console.error('REGISTER ERROR:', error);
-      alert('Cannot register: ' + error.message);
+    }catch(err){
+      console.error('REGISTER ERROR:', err);
+      alert('Registration failed : ' + err.message);
     }
   });
 }
 
-function attachProductCreateHandler() {
-  const form = document.getElementById('product-create-form') || document.getElementById('product-create-form-alt');
-  if (!form) return;
-  form.addEventListener('submit', async e => {
+
+function attachProductCreateHandler(){
+  const form = document.getElementById('product-create-form');
+  if(!form) return;
+  form.addEventListener('submit', async e =>{
     e.preventDefault();
     const payload = {
       name: (document.getElementById('product-name') || {}).value,
