@@ -1,7 +1,7 @@
 :root{
-  --accent:  #6fbae5;
+  --accent: #6fbae5;
   --bg: #f6f8fa;
-  --card: #ffffff;
+  --card: #6fbae5;
   --muted: #6b7280;
 }
 .homepagehead{font-size:34px;margin:0;font-weight:1700;color: #6fbae5;
@@ -12,23 +12,52 @@ body{margin:0;font-family:Inter, Roboto, Arial, sans-serif;background:var(--bg);
 .sidebar{
   width:260px;background-color: #8AC9EB;background:var(--card);border-right:1px solid #6fbae5;padding:20px;display:flex;flex-direction:column;gap:12px
 }
-.brand{font-weight:700,color: #6fbae5;
-  color:var(--accent);
+.invhead{font-size:30px;margin:0;border: 2px solid black; padding: 10px;font-weight:700;color: #6fbae5;border-radius: 12px;border-color: #6fbae5
+}
+.brand{font-size:30px;font-weight:700,font-color: #000000ff;;
   font-size:20px}
 .nav{display:flex;flex-direction:column;gap:6px;margin-top:6px}
 .nav a{padding:8px 10px;border-radius:8px;color:#1f2937;text-decoration:none}
 .nav a:hover{background:#f3f6f9}
 .nav a.active{background:rgba(46,139,87,.06);border-left:3px solid var(--accent);padding-left:7px}
 .content{flex:1;padding:22px;display:flex;flex-direction:column;gap:16px}
-.header{display:flex;justify-content:space-between;align-items:center}
+.header{display:flex;justify-content:space-between;align-items:center;color:var(--accent)}
 .kpi-row{display:flex;gap:16px;flex-wrap:wrap}
 .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 20px rgba(30,30,30,0.04);min-width:160px}
 .card h3{margin:0;font-size:14px;color:var(--muted)}
 .card p{margin:8px 0 0;font-size:20px;font-weight:600}
 .toolbar{display:flex;gap:8px;align-items:center}
 .button{padding:6px 10px;border-radius:10px;background}
-.btn{padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;border:none;cursor:pointer}
-.secondary{background:#eef6f1;color:var(--accent);border:1px solid #dfeee1}
+.btn, .btn.secondary{
+  display:inline-block;
+  padding:14px 22px;
+  font-size:16px;
+  min-width:140px;
+  border-radius:10px;
+  background:var(--card);
+  color:#072036;
+  border:none;
+  cursor:pointer;
+  text-align:center;
+}
+
+.secondary{background:var(--card);color:#072036;border:none}
+
+/* Call-to-action box around the primary buttons (Login/Register) */
+.cta-box{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:18px 0;
+  padding:18px 22px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;
+  align-self:center;
+  box-shadow:0 6px 18px rgba(2,6,23,0.35);
+}
+
+.btn:hover, .btn.secondary:hover{opacity:0.95}
 .table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden}
 .table th, .table td{padding:12px;border-bottom:1px solid #f1f5f9;text-align:left}
 .form{background:var(--card);padding:18px;border-radius:10px}

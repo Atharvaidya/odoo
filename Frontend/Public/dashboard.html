@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>StockMaster — Dashboard</title>
-  <link rel="stylesheet" href="odoo/frontend/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">StockMaster</div>
       <nav class="nav">
-        <a href="odoo/Frontend/Pubilc/index.html">Home</a>
-        <a href="odoo/Frontend/Pubilc/login.html">Login</a>
-        <a href="odoo/Frontend/Pubilc/register.html">Register</a>
-        <a href="odoo/Frontend/Pubilc/dashboard.html">Dashboard</a>
-        <a href="odoo/frontend/Pages/product-list.html">Products</a>
-        <a href="odoo/frontend/Pages/receipts-list.html">Receipts</a>
-        <a href="odoo/frontend/Pages/delivery-list.html">Deliveries</a>
-        <a href="odoo/frontend/Pages/transfer-list.html">Transfers</a>
-        <a href="odoo/frontend/Pages/adjustments-list.html">Adjustments</a>
-        <a href="odoo/frontend/Pages/move-history.html">Move History</a>
-        <a href="odoo/frontend/Pages/warehouses.html">Warehouses</a>
-        <a href="odoo/frontend/Pages/profile.html">Profile</a>
+        <a href="../Public/index.html">Home</a>
+        <a href="../Public/login.html">Login</a>
+        <a href="../Public/register.html">Register</a>
+        <a href="../Public/dashboard.html">Dashboard</a>
+        <a href="../Pages/product-list.html">Products</a>
+        <a href="../Pages/receipts-list.html">Receipts</a>
+        <a href="../Pages/delivery-list.html">Deliveries</a>
+        <a href="../Pages/transfer-list.html">Transfers</a>
+        <a href="../Pages/adjustments-list.html">Adjustments</a>
+        <a href="../Pages/move-history.html">Move History</a>
+        <a href="../Pages/warehouses.html">Warehouses</a>
+        <a href="../Pages/profile.html">Profile</a>
       </nav>
       <div class="footer">© StockMaster</div>
     </aside>
@@ -39,21 +39,47 @@
         <!-- KPIs populated by JS -->
       </div>
 
-      <div class="card">
+      <div class="card" id="quick-filters-card">
         <h3>Quick Filters</h3>
-        <div style="display:flex;gap:8px;margin-top:8px">
-          <button class="btn secondary">Receipts</button>
-          <button class="btn secondary">Deliveries</button>
-          <button class="btn secondary">Internal</button>
-          <button class="btn secondary">Adjustments</button>
+        <div id="quick-filters-buttons" style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn secondary" data-filter="receipts">Receipts</button>
+          <button class="btn secondary" data-filter="deliveries">Deliveries</button>
+          <button class="btn secondary" data-filter="internal">Internal</button>
+        </div>
+        <hr />
+        <div style="margin-top:12px">
+          <table id="quick-filters-table" style="width:100%;border-collapse:collapse;background:#6fbae5;border-radius:8px;overflow:hidden;color:#072036;">
+            <thead>
+              <tr style="text-align:left">
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">Type</th>
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">Count</th>
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">Recent</th>
+              </tr>
+              <tr style="text-align:left">
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">Reliance Digital</th>
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">5000 units</th>
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">2 Months 3 Weeks 2 Days ago</th>
+              </tr>
+              <tr style="text-align:left">
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">Maruti Motor Crop.</th>
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">2000 units</th>
+                <th style="padding:8px;border-bottom:1px solid rgba(0,0,0,0.08)">4 Days Ago</th>
+              </tr>
+            </thead>
+            <tbody id="quick-filters-tbody">
+              <tr><td colspan="3" style="padding:12px">Select a filter</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <div class="card pdf-embed">
-        <iframe src="/mnt/data/StockMaster.pdf#page=1" frameborder="0" style="width:100%;height:100%"></iframe>
+        <img img-src="Bluecar.webp" style="width:100%;height:100%" />
+        <!--<iframe src="/mnt/data/StockMaster.pdf#page=1" frameborder="0" style="width:100%;height:100%"></iframe>-->
+        
       </div>
     </main>
   </div>
-  <script src="js/main.js"></script>
+  <script src="../Js/main.js"></script>
 </body>
 </html>

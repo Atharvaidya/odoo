@@ -2,33 +2,77 @@
 <html lang="en">
 <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Deliveries — StockMaster</title>
-  <link rel="stylesheet" href="odoo/frontend/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">StockMaster</div>
       <nav class="nav">
-        <a href="odoo/Frontend/Pubilc/index.html">Home</a>
-        <a href="odoo/Frontend/Pubilc/login.html">Login</a>
-        <a href="odoo/Frontend/Pubilc/register.html">Register</a>
-        <a href="odoo/Frontend/Pubilc/dashboard.html">Dashboard</a>
-        <a href="odoo/frontend/Pages/product-list.html">Products</a>
-        <a href="odoo/frontend/Pages/receipts-list.html">Receipts</a>
-        <a href="odoo/frontend/Pages/delivery-list.html">Deliveries</a>
-        <a href="odoo/frontend/Pages/transfer-list.html">Transfers</a>
-        <a href="odoo/frontend/Pages/adjustments-list.html">Adjustments</a>
-        <a href="odoo/frontend/Pages/move-history.html">Move History</a>
-        <a href="odoo/frontend/Pages/warehouses.html">Warehouses</a>
-        <a href="odoo/frontend/Pages/profile.html">Profile</a>
+        <a href="../Public/index.html">Home</a>
+        <a href="../Public/login.html">Login</a>
+        <a href="../Public/register.html">Register</a>
+        <a href="../Public/dashboard.html">Dashboard</a>
+        <a href="../Pages/product-list.html">Products</a>
+        <a href="../Pages/receipts-list.html">Receipts</a>
+        <a href="../Pages/delivery-list.html">Deliveries</a>
+        <a href="../Pages/transfer-list.html">Transfers</a>
+        <a href="../Pages/adjustments-list.html">Adjustments</a>
+        <a href="../Pages/move-history.html">Move History</a>
+        <a href="../Pages/warehouses.html">Warehouses</a>
+        <a href="../Pages/profile.html">Profile</a>
       </nav>
       <div class="footer">© StockMaster</div>
     </aside>
     <main class="content">
       <div class="header"><h2>Delivery Orders</h2><div><a class="btn" href="delivery-create.html">Create Delivery</a></div></div>
-      <div class="card"><table class="table"><thead><tr><th>ID</th><th>Customer</th><th>Status</th><th>Date</th><th>Action</th></tr></thead><tbody id="deliveries-tbody"></tbody></table></div>
+      <div class="card">
+        <h3>Deliveries</h3>
+        <div style="margin-top:10px;">
+          <table id="deliveries-table" style="width:100%;border-collapse:collapse;background:#6fbae5;border-radius:8px;overflow:hidden;color:#072036;">
+            <thead>
+              <tr style="text-align:left">
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">ID</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Customer</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Status</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Date</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Action</th>
+              </tr>
+            </thead>
+            <tbody id="deliveries-tbody">
+              <tr><td colspan="5" style="padding:12px">Loading deliveries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
   </div>
-  <script src="js/main.js"></script>
+  <script src="../../js/main.js"></script>
+  <script>
+    (function populateSampleDeliveries(){
+      const tbody = document.getElementById('deliveries-tbody');
+      if (!tbody) return;
+      function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+      function randomDate(daysBack){const d=new Date();d.setDate(d.getDate()-randInt(0,daysBack));return d.toLocaleDateString()}
+      const customers = ['Acme Corp','Beta Retail','Central Market','Delta Logistics','Echo Traders'];
+      const statuses = ['Pending','Shipped','Delivered','In Transit'];
+      const rows = [];
+      for(let i=0;i<10;i++){
+        rows.push({id:'D-'+(2000+i), customer: customers[randInt(0,customers.length-1)], status: statuses[randInt(0,statuses.length-1)], date: randomDate(60) });
+      }
+      tbody.innerHTML = '';
+      rows.forEach(r=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.id}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.customer}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.status}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.date}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)"><button class="btn secondary">View</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    })();
+  </script>
 </body>
 </html>
