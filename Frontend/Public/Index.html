@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>StockMaster — Landing</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="odoo/frontend/css/style.css">
 </head>
 <body>
   <div class="app">
@@ -15,13 +15,18 @@
         <a href="login.html">Login</a>
         <a href="register.html">Register</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="products-list.html">Products</a>
-        <a href="receipts-list.html">Receipts</a>
-        <a href="deliveries-list.html">Deliveries</a>
-        <a href="transfers-list.html">Transfers</a>
-        <a href="adjustments-list.html">Adjustments</a>
-        <a href="move-history.html">Move History</a>
+        <a href="product-list.html">Products</a>
+        <a href="product-create.html">Add Product</a>
+        <a href="transfer-list.html">Transfers</a>
+        <a href="transfer-create.html">Create Transfer</a>
         <a href="warehouses.html">Warehouses</a>
+        <a href="receipts-list.html">Receipts</a>
+        <a href="receipts-create.html">Create Receipt</a>
+        <a href="delivery-list.html">Deliveries</a>
+        <a href="delivery-create.html">Create Delivery</a>
+        <a href="adjustments-list.html">Adjustments</a>
+        <a href="adjustment-create.html">Create Adjustment</a>
+        <a href="move-history.html">Move History</a>
         <a href="profile.html">Profile</a>
       </nav>
       <div class="footer">© StockMaster</div>
@@ -40,7 +45,10 @@
         <p>StockMaster converts manual stock registers into a centralized inventory system.</p>
         <p class="muted">Use the navigation to explore modules.</p>
       </div>
-      <div><a class="button" href ="login.html">Login</a> </div>
+      <div class="cta-box">
+        <a class="btn" href="login.html">Login</a>
+        <a class="btn secondary" href="register.html">Register</a>
+      </div>
 
       <div class="card pdf-embed">
         <!-- Embedded local PDF (exact local path used) -->
