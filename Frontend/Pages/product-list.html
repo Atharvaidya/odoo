@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Create Receipt — StockMaster</title>
+  <title >Products — StockMaster</title>
   <link rel="stylesheet" href="odoo/frontend/css/style.css">
 </head>
 <body>
@@ -24,15 +24,15 @@
       </nav>
       <div class="footer">© StockMaster</div>
     </aside>
+
     <main class="content">
-      <div class="header"><h2>Create Receipt</h2></div>
-      <div class="form">
-        <form id="receipts-create-form">
-          <div class="row"><input id="receipt-supplier" class="input" placeholder="Supplier" required></div>
-          <div class="row"><input id="receipt-sku" class="input" placeholder="Product SKU" required></div>
-          <div class="row"><input id="receipt-qty" class="input" type="number" placeholder="Quantity" required></div>
-          <div style="display:flex;gap:8px"><button class="btn" type="submit">Save</button><a class="btn secondary" href="receipts-list.html">Cancel</a></div>
-        </form>
+      <div class="header"><h2>Products</h2><div><a class="btn" href="product-create.html">Create Product</a></div></div>
+
+      <div class="card">
+        <table class="table">
+          <thead><tr><th>Name</th><th>SKU</th><th>Category</th><th>Stock</th><th>Action</th></tr></thead>
+          <tbody id="products-tbody"></tbody>
+        </table>
       </div>
     </main>
   </div>

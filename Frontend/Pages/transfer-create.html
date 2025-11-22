@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Create Transfer — StockMaster</title>
+  <link rel="stylesheet" href="odoo/frontend/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">StockMaster</div>
+      <nav class="nav">
+        <a href="odoo/Frontend/Pubilc/index.html">Home</a>
+        <a href="odoo/Frontend/Pubilc/login.html">Login</a>
+        <a href="odoo/Frontend/Pubilc/register.html">Register</a>
+        <a href="odoo/Frontend/Pubilc/dashboard.html">Dashboard</a>
+        <a href="odoo/frontend/Pages/product-list.html">Products</a>
+        <a href="odoo/frontend/Pages/receipts-list.html">Receipts</a>
+        <a href="odoo/frontend/Pages/delivery-list.html">Deliveries</a>
+        <a href="odoo/frontend/Pages/transfer-list.html">Transfers</a>
+        <a href="odoo/frontend/Pages/adjustments-list.html">Adjustments</a>
+        <a href="odoo/frontend/Pages/move-history.html">Move History</a>
+        <a href="odoo/frontend/Pages/warehouses.html">Warehouses</a>
+        <a href="odoo/frontend/Pages/profile.html">Profile</a>
+      </nav>
+      <div class="footer">© StockMaster</div>
+    </aside>
+    <main class="content">
+      <div class="header"><h2>Create Internal Transfer</h2></div>
+      <div class="form">
+        <form id="transfer-create-form">
+          <div class="row"><input id="transfer-from" class="input" placeholder="From Warehouse" required></div>
+          <div class="row"><input id="transfer-to" class="input" placeholder="To Warehouse" required></div>
+          <div class="row"><input id="transfer-sku" class="input" placeholder="Product SKU" required></div>
+          <div class="row"><input id="transfer-qty" class="input" type="number" placeholder="Quantity" required></div>
+          <div style="display:flex;gap:8px"><button class="btn" type="submit">Create</button><a class="btn secondary" href="transfer-list.html">Cancel</a></div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

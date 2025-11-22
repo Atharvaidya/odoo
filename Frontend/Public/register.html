@@ -4,22 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>StockMaster — Register</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="odoo/frontend/css/style.css">
 </head>
 <body>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">StockMaster</div>
-      <nav class="nav"><a href="index.html">Home</a><a href="login.html">Login</a></nav>
+      <nav class="nav">
+        <a href="odoo/Frontend/Pubilc/index.html">Home</a>
+        <a href="odoo/Frontend/Pubilc/login.html">Login</a>
+        <a href="odoo/Frontend/Pubilc/register.html">Register</a>
+        <a href="odoo/Frontend/Pubilc/dashboard.html">Dashboard</a>
+        <a href="odoo/frontend/Pages/product-list.html">Products</a>
+        <a href="odoo/frontend/Pages/receipts-list.html">Receipts</a>
+        <a href="odoo/frontend/Pages/delivery-list.html">Deliveries</a>
+        <a href="odoo/frontend/Pages/transfer-list.html">Transfers</a>
+        <a href="odoo/frontend/Pages/adjustments-list.html">Adjustments</a>
+        <a href="odoo/frontend/Pages/move-history.html">Move History</a>
+        <a href="odoo/frontend/Pages/warehouses.html">Warehouses</a>
+        <a href="odoo/frontend/Pages/profile.html">Profile</a>
+      </nav>
       <div class="footer">© StockMaster</div>
     </aside>
     <main class="content">
       <div class="header"><h2>Register</h2></div>
       <div class="form">
-        <form action="#" method="post" onsubmit="alert('Replace with register API call'); return false;">
-          <div class="row"><input class="input" type="text" placeholder="Name" required></div>
-          <div class="row"><input class="input" type="email" placeholder="Email" required></div>
-          <div class="row"><input class="input" type="password" placeholder="Password" required></div>
+        <form id="register-form">
+          <div class="row"><input id="register-name" class="input" type="text" placeholder="Name" required></div>
+          <div class="row"><input id="register-email" class="input" type="email" placeholder="Email" required></div>
+          <div class="row"><input id="register-password" class="input" type="password" placeholder="Password" required></div>
           <div style="display:flex;gap:8px"><button class="btn" type="submit">Register</button><a class="btn secondary" href="index.html">Back</a></div>
         </form>
       </div>
