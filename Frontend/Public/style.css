@@ -1,0 +1,43 @@
+:root{
+  --accent:  #6fbae5;
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --muted: #6b7280;
+}
+.homepagehead{font-size:34px;margin:0;font-weight:1700;color: #6fbae5;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, Roboto, Arial, sans-serif;background:var(--bg);background-color: #0b2c58}
+.app{display:flex;min-height:100vh}
+.sidebar{
+  width:260px;background-color: #8AC9EB;background:var(--card);border-right:1px solid #6fbae5;padding:20px;display:flex;flex-direction:column;gap:12px
+}
+.brand{font-weight:700,color: #6fbae5;
+  color:var(--accent);
+  font-size:20px}
+.nav{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.nav a{padding:8px 10px;border-radius:8px;color:#1f2937;text-decoration:none}
+.nav a:hover{background:#f3f6f9}
+.nav a.active{background:rgba(46,139,87,.06);border-left:3px solid var(--accent);padding-left:7px}
+.content{flex:1;padding:22px;display:flex;flex-direction:column;gap:16px}
+.header{display:flex;justify-content:space-between;align-items:center}
+.kpi-row{display:flex;gap:16px;flex-wrap:wrap}
+.card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 20px rgba(30,30,30,0.04);min-width:160px}
+.card h3{margin:0;font-size:14px;color:var(--muted)}
+.card p{margin:8px 0 0;font-size:20px;font-weight:600}
+.toolbar{display:flex;gap:8px;align-items:center}
+.button{padding:6px 10px;border-radius:10px;background}
+.btn{padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;border:none;cursor:pointer}
+.secondary{background:#eef6f1;color:var(--accent);border:1px solid #dfeee1}
+.table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden}
+.table th, .table td{padding:12px;border-bottom:1px solid #f1f5f9;text-align:left}
+.form{background:var(--card);padding:18px;border-radius:10px}
+.form .row{display:flex;gap:12px;margin-bottom:12px}
+.input, textarea, select{padding:10px;border-radius:8px;border:1px solid #e6e9ee;width:100%}
+.pdf-embed{height:420px;border-radius:8px;overflow:hidden;border:1px solid #e6e9ee}
+.footer{margin-top:auto;color:var(--muted);font-size:13px}
+@media (max-width:900px){
+  .sidebar{display:none}
+  .content{padding:12px}
+  .kpi-row{flex-direction:column}
+}
