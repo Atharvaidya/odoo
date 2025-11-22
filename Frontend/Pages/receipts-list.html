@@ -34,8 +34,69 @@
           <div style="display:flex;gap:8px"><button class="btn" type="submit">Save</button><a class="btn secondary" href="receipts-list.html">Cancel</a></div>
         </form>
       </div>
+      <!-- Receipts list table with inline styles matching card background -->
+      <div class="card" style="margin-top:16px;">
+        <h3>Recent Receipts</h3>
+        <div style="margin-top:10px;">
+          <table id="receipts-table" style="width:100%;border-collapse:collapse;background:#6fbae5;border-radius:8px;overflow:hidden;color:#072036;">
+            <thead>
+              <tr style="text-align:left">
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Receipt ID</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Supplier</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">SKU</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Qty</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Date</th>
+                <th style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">Status</th>
+              </tr>
+            </thead>
+            <tbody id="receipts-list-tbody">
+              <tr><td colspan="6" style="padding:12px">Loading receipts...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
   </div>
   <script src="../js/main.js"></script>
+  <script>
+    (function populateSampleReceipts(){
+      const tbody = document.getElementById('receipts-list-tbody');
+      if (!tbody) return;
+      // generate N sample receipts with random recent dates
+      function randInt(min, max){ return Math.floor(Math.random()*(max-min+1))+min; }
+      function randomDate(daysBack){
+        const d = new Date();
+        d.setDate(d.getDate() - randInt(0, daysBack));
+        return d.toLocaleDateString();
+      }
+      const sampleSuppliers = ['Acme Supplies','Global Parts','Warehouse Co.','SupplyHub'];
+      const sampleSkus = ['SKU-1001','SKU-1002','SKU-2005','SKU-3007','SKU-9001'];
+      const statuses = ['Received','Pending','Partially Received'];
+      const rows = [];
+      for(let i=0;i<8;i++){
+        rows.push({
+          id: 'R-' + (1000 + i),
+          supplier: sampleSuppliers[randInt(0, sampleSuppliers.length-1)],
+          sku: sampleSkus[randInt(0, sampleSkus.length-1)],
+          qty: randInt(1,50),
+          date: randomDate(45),
+          status: statuses[randInt(0, statuses.length-1)]
+        });
+      }
+      tbody.innerHTML = '';
+      rows.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.id}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.supplier}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.sku}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.qty}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.date}</td>
+          <td style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.08)">${r.status}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    })();
+  </script>
 </body>
 </html>
